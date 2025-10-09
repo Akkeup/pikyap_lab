@@ -20,26 +20,32 @@ fn main() {
 
         if nums.len() == 3 && nums[0] != 0.0 {
             let a = nums[0];
-
-
             let b = nums[1];
             let c = nums[2];
 
-            let discriminant = b*b - 4.0*a*c;
-            if discriminant >= 0.0 {
-                let x1 = (-b + discriminant.sqrt()) / (2.0 * a);
-                let x2 = (-b - discriminant.sqrt()) / (2.0 * a);
-                result.push(x1);
-                result.push(x2);
-        
-                for i in result {
-                    println!("{}", format!("Ваши корни: {i}").green());
-                }
+            let d = b*b - 4.0*a*c;
+            if d >= 0.0 {
+                let t1 = (-b + d.sqrt()) / (2.0 * a);
+                let t2 = (-b - d.sqrt()) / (2.0 * a);
 
-                break;
+                if t1 >= 0.0 {
+                    result.push(t1.sqrt());
+                    result.push(-t1.sqrt());
+                }
+                
+                if t2 >= 0.0 && t2 != t1 {
+                    result.push(t2.sqrt());
+                    result.push(-t2.sqrt());
+                }
+                else {
+                    for i in result {
+                        println!("{}", format!("Корень: {i}").green());
+                    }
+                    break;
+                }
             } 
             else {
-                println!("{}", "Нет корней".red());
+                println!("{}", "Действительных корней нет".red());
             }
         } 
         else if nums[0] == 0.0 {
