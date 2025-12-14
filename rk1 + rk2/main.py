@@ -1,5 +1,3 @@
-# main.py
-
 class Conductor:
     def __init__(self, Id_Conductor, Surname, Payment, Id_Orchestra):
         self.Id_Conductor = Id_Conductor
