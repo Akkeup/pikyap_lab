@@ -1,6 +1,6 @@
 #![allow(unused)]
 
-trait GeometricalShape { // сюда закинуть print_info()
+trait GeometricalShape {
     fn find_area(&self) -> f64;
 }
 
